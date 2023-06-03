@@ -10,6 +10,8 @@ public class BallController : MonoBehaviour
   public float zForce = 10.0f;
   public float yForce = 500.0f;
 
+  public bool canJump = true;
+
   Rigidbody rb;
 
   // Start is called before the first frame update
@@ -51,7 +53,7 @@ public class BallController : MonoBehaviour
     //this is for z axis' movement
 
     float y = 0.0f;
-    if (Input.GetKeyDown(KeyCode.Space))
+    if (Input.GetKeyDown(KeyCode.Space) && canJump)
     {
       y = yForce;
     }

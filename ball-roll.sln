@@ -85,6 +85,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.TestTools.CodeCoverag
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.VisualScripting.Shared.Editor", "Unity.VisualScripting.Shared.Editor.csproj", "{681ce333-0dbb-023c-aebf-31e54e678fa1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.Play.Publisher.Editor", "Unity.Play.Publisher.Editor.csproj", "{8d9b0474-0ff0-5885-9bf4-af7848b0099a}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.InternalAPIEditorBridgeDev.001", "Unity.InternalAPIEditorBridgeDev.001.csproj", "{6bba2b75-32d3-58ec-fe84-ef7e0b61d091}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -174,6 +178,10 @@ Global
 		{6aa42fad-9cc6-bfc9-31c3-0f43f5030460}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{681ce333-0dbb-023c-aebf-31e54e678fa1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{681ce333-0dbb-023c-aebf-31e54e678fa1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8d9b0474-0ff0-5885-9bf4-af7848b0099a}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8d9b0474-0ff0-5885-9bf4-af7848b0099a}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6bba2b75-32d3-58ec-fe84-ef7e0b61d091}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6bba2b75-32d3-58ec-fe84-ef7e0b61d091}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

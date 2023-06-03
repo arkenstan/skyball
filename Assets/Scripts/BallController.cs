@@ -10,20 +10,41 @@ public class BallController : MonoBehaviour
   public float zForce = 10.0f;
   public float yForce = 500.0f;
 
+  public int resetLevel = -10;
+
   public bool canJump = true;
 
   Rigidbody rb;
+  Vector3 initPosition;
 
   // Start is called before the first frame update
   void Start()
   {
 
     rb = GetComponent<Rigidbody>();
+    initPosition = transform.position;
 
   }
 
   // Update is called once per frame
   void Update()
+  {
+    movementControl();
+    checkForReset();
+  }
+
+  private void checkForReset()
+  {
+    if (transform.position.y < resetLevel)
+    {
+      transform.position = initPosition;
+      rb.velocity = Vector3.zero;
+      rb.angularVelocity = Vector3.zero;
+
+    }
+  }
+
+  private void movementControl()
   {
     //this is for x axis' movement
 
@@ -59,5 +80,9 @@ public class BallController : MonoBehaviour
     }
 
     rb.AddForce(x, y, z);
+
   }
+
+
+
 }

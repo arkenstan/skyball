@@ -28,3 +28,11 @@ jobs:
         with:
           name: Build
           path: build
+        # Upload to Itch
+      - uses: josephbmanley/butler-publish-itchio-action@master
+        env:
+          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
+          CHANNEL: html5
+          ITCH_GAME: skyball
+          ITCH_USER: arkenstan
+          PACKAGE: build/WebGL

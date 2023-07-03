@@ -25,7 +25,13 @@ public class TrackCollision : MonoBehaviour
 
   private void OnCollisionEnter(Collision other)
   {
-    if (other.gameObject.tag == "Track")
+
+    if (other.gameObject.tag == "start")
+    {
+      bController.canForce = true;
+      bController.canJump = true;
+    }
+    else if (other.gameObject.tag == "Track")
     {
       bController.canJump = true;
     }

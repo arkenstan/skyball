@@ -9,10 +9,11 @@ public class BallController : MonoBehaviour
   public float xForce = 10.0f;
   public float zForce = 10.0f;
   public float yForce = 500.0f;
-
   public int resetLevel = -10;
+  public bool canJump = false;
+  public bool canForce = false;
 
-  public bool canJump = true;
+  private GameObject startPlatform;
 
   Rigidbody rb;
   Vector3 initPosition;
@@ -20,10 +21,11 @@ public class BallController : MonoBehaviour
   // Start is called before the first frame update
   void Start()
   {
-
     rb = GetComponent<Rigidbody>();
-    initPosition = transform.position;
-
+    startPlatform = GameObject.FindGameObjectWithTag("start");
+    Vector3 platformPosition = startPlatform.transform.position;
+    initPosition = new(platformPosition.x, platformPosition.y + 10f, platformPosition.z);
+    transform.position = initPosition;
   }
 
   // Update is called once per frame
@@ -79,7 +81,11 @@ public class BallController : MonoBehaviour
       y = yForce;
     }
 
-    rb.AddForce(x, y, z);
+    if (canForce)
+    {
+      rb.AddForce(x, y, z);
+    }
+
 
   }
 

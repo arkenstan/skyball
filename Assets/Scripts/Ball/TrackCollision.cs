@@ -6,6 +6,9 @@ public class TrackCollision : MonoBehaviour
 {
 
   public BallManager bm;
+
+  public GameEvent trackCollisionEvent;
+
   void Start()
   {
     bm = GetComponent<BallManager>();
@@ -27,7 +30,8 @@ public class TrackCollision : MonoBehaviour
     }
     else if (other.gameObject.tag == "Track")
     {
-      SetJump(true);
+      trackCollisionEvent.Raise();
+      // SetJump(true);
     }
     else if (other.gameObject.tag == "finish")
     {

@@ -12,7 +12,7 @@ public class BallManager : MonoBehaviour
   public bool canMoveX = false;
   public bool canMoveZ = false;
   public float resetLevel = -10f;
-  public Rigidbody rb;
+  private Rigidbody rb;
 
   public Vector3 initialPosition = Vector3.zero;
 
@@ -36,6 +36,12 @@ public class BallManager : MonoBehaviour
   {
     gm.reset.AddListener(ResetPosition);
     gm.onGameOver.AddListener(GameOverHandler);
+
+  }
+
+  public void trackCollided()
+  {
+    canJump = true;
   }
 
   void SetInitialPosition()

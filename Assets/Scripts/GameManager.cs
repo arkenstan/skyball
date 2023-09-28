@@ -5,54 +5,53 @@ using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
+    public int lives = 3;
 
-  public int lives = 3;
+    public TrackAttributes trackAttrs;
+    public GameAttributes gameProps;
 
-  private int currentLives = 0;
+    public GameEvent gameOverEvent,
+        resetEvent;
 
-  [SerializeField] public GameObject player, startPlatform, endPlatform;
+    [SerializeField]
+    public GameObject startPlatform;
 
-  private readonly float deltaY = 10f;
+    private readonly float deltaY = 10f;
 
-  [HideInInspector] public UnityEvent onFinish = new UnityEvent();
-  [HideInInspector] public UnityEvent onGameOver = new UnityEvent();
-  [HideInInspector] public UnityEvent reset = new UnityEvent();
-
-  void Start()
-  {
-    currentLives = lives;
-    SetupEvents();
-  }
-
-
-  void SetupEvents()
-  {
-    onFinish.AddListener(FinishHandler);
-    onGameOver.AddListener(GameOverHandler);
-  }
-
-
-  public Vector3 GetInitialPosition()
-  {
-    Vector3 platformPosition = startPlatform.transform.position;
-    Vector3 resetPosition = new(platformPosition.x, platformPosition.y + deltaY, platformPosition.z);
-    return resetPosition;
-  }
-
-  public void FallHandler()
-  {
-    --currentLives;
-    if (currentLives <= 0)
+    void Start()
     {
-      onGameOver.Invoke();
+        GetInitialPosition();
     }
-    else
+
+    public void GetInitialPosition()
     {
-      reset.Invoke();
+        Vector3 platformPosition = startPlatform.transform.position;
+        Vector3 resetPosition =
+            new(platformPosition.x, platformPosition.y + deltaY, platformPosition.z);
+        trackAttrs.resetPosition = resetPosition;
+        trackAttrs.initialPosition = platformPosition;
     }
-  }
 
-  void FinishHandler() { }
+    public void FallHandler()
+    {
+        --gameProps.lives;
+        if (gameProps.lives <= 0)
+        {
+            gameOverEvent.Raise();
+        }
+        else
+        {
+            resetEvent.Raise();
+        }
+    }
 
-  void GameOverHandler() { }
+    public void FinishHandler()
+    {
+        resetEvent.Raise();
+    }
+
+    public void GameOverHandler()
+    {
+        resetEvent.Raise();
+    }
 }

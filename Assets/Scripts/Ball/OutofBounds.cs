@@ -5,19 +5,13 @@ using UnityEngine.Events;
 
 public class OutofBounds : MonoBehaviour
 {
-    public BallManager bm;
-
-    private void Start()
-    {
-        bm = GetComponent<BallManager>();
-    }
+    public GameEvent fallEvent;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "bound")
         {
-            bm.DidFall();
+            fallEvent.Raise();
         }
     }
-
 }

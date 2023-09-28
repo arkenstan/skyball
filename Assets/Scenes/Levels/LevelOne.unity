@@ -731,7 +731,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1622101445}
   - component: {fileID: 1622101446}
-  - component: {fileID: 1622101447}
+  - component: {fileID: 1622101448}
+  - component: {fileID: 1622101450}
+  - component: {fileID: 1622101449}
+  - component: {fileID: 1622101451}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -767,19 +770,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 3
+  trackAttrs: {fileID: 11400000, guid: e7e855e45a5c84efd9220fa3109c03e6, type: 2}
+  gameProps: {fileID: 11400000, guid: d6936341681c89877976db4f99016e50, type: 2}
+  gameOverEvent: {fileID: 11400000, guid: 3b09cad6409540091a83d271bbd6d143, type: 2}
+  resetEvent: {fileID: 11400000, guid: ccd7467a3c27512fd9871c8a43c6441b, type: 2}
   player: {fileID: 1703109349}
   startPlatform: {fileID: 1540688077}
   endPlatform: {fileID: 2002410673}
-  onFinish:
-    m_PersistentCalls:
-      m_Calls: []
-  onGameOver:
-    m_PersistentCalls:
-      m_Calls: []
-  reset:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &1622101447
+--- !u!114 &1622101448
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -791,13 +789,121 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e0e10aecd056e3d38f50a8482d95626, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 3fb5838bc029ba4768a42dafc328f50b, type: 2}
+  gameEvent: {fileID: 11400000, guid: f6094c11f9a798006bd5ce31d6e23693, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1622101446}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: FallHandler
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1622101449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1622101444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e0e10aecd056e3d38f50a8482d95626, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 3b09cad6409540091a83d271bbd6d143, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1622101446}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: GameOverHandler
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1703109348}
+        m_TargetAssemblyTypeName: BallManager, Assembly-CSharp
+        m_MethodName: GameOverHandler
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1622101450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1622101444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e0e10aecd056e3d38f50a8482d95626, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 972b0def7fa9086c29b1aa14387fea39, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1622101446}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: FinishHandler
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1703109346}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: FinishHandler
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1622101451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1622101444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e0e10aecd056e3d38f50a8482d95626, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: ccd7467a3c27512fd9871c8a43c6441b, type: 2}
   Response:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1703109348}
         m_TargetAssemblyTypeName: BallManager, Assembly-CSharp
-        m_MethodName: trackCollided
+        m_MethodName: ResetHandler
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -929,6 +1035,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ball
       objectReference: {fileID: 0}
+    - target: {fileID: 6532039558125739888, guid: 2e9f069cd458fa019b2778293d894291, type: 3}
+      propertyPath: ballAttrs
+      value: 
+      objectReference: {fileID: 11400000, guid: 98f82142fe71d5b49b70d8725b883efd, type: 2}
     - target: {fileID: 8482824505289677571, guid: 2e9f069cd458fa019b2778293d894291, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -973,8 +1083,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e4b8089fb51f5fd1bc34936a1d9802b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bm: {fileID: 0}
   trackCollisionEvent: {fileID: 11400000, guid: 3fb5838bc029ba4768a42dafc328f50b, type: 2}
+  finishEvent: {fileID: 11400000, guid: 972b0def7fa9086c29b1aa14387fea39, type: 2}
+  ballAttrs: {fileID: 11400000, guid: 98f82142fe71d5b49b70d8725b883efd, type: 2}
 --- !u!114 &1703109348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -987,11 +1098,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f5cccedeb2ace8fd8478152b0031ea1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gmObj: {fileID: 1622101444}
-  canJump: 1
-  canMoveX: 1
-  canMoveZ: 1
-  resetLevel: -10
+  ballAttrs: {fileID: 11400000, guid: 98f82142fe71d5b49b70d8725b883efd, type: 2}
+  gameAttributes: {fileID: 11400000, guid: d6936341681c89877976db4f99016e50, type: 2}
+  trackProps: {fileID: 11400000, guid: e7e855e45a5c84efd9220fa3109c03e6, type: 2}
   initialPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &1703109349 stripped
 GameObject:
@@ -1010,7 +1119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd85ff808c438b7fc98e14ee2d6ff7dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bm: {fileID: 0}
+  fallEvent: {fileID: 11400000, guid: f6094c11f9a798006bd5ce31d6e23693, type: 2}
 --- !u!1 &1726086797
 GameObject:
   m_ObjectHideFlags: 0
